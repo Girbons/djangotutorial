@@ -1,8 +1,11 @@
 {% if latest_poll_list %}
         <ul>{% for poll  in latest_poll_list %}
-                <li><a href="{% url 'detail' poll.id %}">{{ poll.question }}</a></li>
+                <li><a href="{% url 'polls:detail' poll.id %}">{{ poll.question }}</a></li>
             {% endfor %}
         </ul>
         {% else %}
             <p>No poll are available.</p>
         {% endif %}
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/styles.css' %}" />
